@@ -1,58 +1,58 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { ArrowRight, Package, AlertTriangle, TrendingUp, Zap } from 'lucide-react';
+import { ArrowRight, Package, AlertTriangle, TrendingUp, Zap, MapPin, IndianRupee } from 'lucide-react';
 
 const transferRecommendations = [
   {
     id: 1,
     skuName: 'Electronics-TV-55"',
-    fromZone: 'East Zone',
-    toZone: 'North Zone',
+    fromZone: 'Chennai',
+    toZone: 'Mumbai',
     quantity: 400,
     reason: 'Overstock',
     priority: 'High',
-    estimatedSavings: '$12,400'
+    estimatedSavings: '₹8,92,000'
   },
   {
     id: 2,
     skuName: 'Electronics-TV-55"',
-    fromZone: 'East Zone',
-    toZone: 'West Zone',
+    fromZone: 'Chennai',
+    toZone: 'Hyderabad',
     quantity: 200,
     reason: 'Trend Surge',
     priority: 'High',
-    estimatedSavings: '$8,200'
+    estimatedSavings: '₹5,89,440'
   },
   {
     id: 3,
     skuName: 'Home-Appliances-Microwave',
-    fromZone: 'Central Zone',
-    toZone: 'South Zone',
+    fromZone: 'Kolkata',
+    toZone: 'Delhi',
     quantity: 150,
     reason: 'Seasonal Demand',
     priority: 'Medium',
-    estimatedSavings: '$4,850'
+    estimatedSavings: '₹3,49,050'
   },
   {
     id: 4,
     skuName: 'Clothing-Winter-Jackets',
-    fromZone: 'South Zone',
-    toZone: 'North Zone',
+    fromZone: 'Chennai',
+    toZone: 'Delhi',
     quantity: 300,
     reason: 'Weather Pattern',
     priority: 'Medium',
-    estimatedSavings: '$9,100'
+    estimatedSavings: '₹6,55,200'
   },
   {
     id: 5,
     skuName: 'Sports-Equipment-Bikes',
-    fromZone: 'West Zone',
-    toZone: 'East Zone',
+    fromZone: 'Nagpur',
+    toZone: 'Mumbai',
     quantity: 75,
     reason: 'Local Event',
     priority: 'Low',
-    estimatedSavings: '$3,200'
+    estimatedSavings: '₹2,30,400'
   }
 ];
 
@@ -101,8 +101,9 @@ const TransferRecommendations = () => {
             {transferRecommendations.length} Active
           </Badge>
         </div>
-        <p className="text-gray-600 mt-2">
-          AI-generated recommendations to optimize inventory distribution
+        <p className="text-gray-600 mt-2 flex items-center space-x-2">
+          <MapPin className="h-4 w-4 text-blue-500" />
+          <span>AI-generated recommendations to optimize inventory distribution across India</span>
         </p>
       </CardHeader>
       <CardContent>
@@ -114,8 +115,9 @@ const TransferRecommendations = () => {
             >
               <div className="flex items-start justify-between mb-3">
                 <div className="flex-1">
-                  <h3 className="font-semibold text-gray-900 mb-1">
-                    {transfer.skuName}
+                  <h3 className="font-semibold text-gray-900 mb-1 flex items-center space-x-2">
+                    <Package className="h-4 w-4 text-blue-600" />
+                    <span>{transfer.skuName}</span>
                   </h3>
                   <div className="flex items-center space-x-2 text-sm text-gray-600">
                     {getReasonIcon(transfer.reason)}
@@ -131,25 +133,33 @@ const TransferRecommendations = () => {
 
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center space-x-3">
-                  <div className="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-medium">
-                    {transfer.fromZone}
+                  <div className="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-medium flex items-center space-x-1">
+                    <MapPin className="h-3 w-3" />
+                    <span>{transfer.fromZone}</span>
                   </div>
                   <ArrowRight className="h-4 w-4 text-gray-400" />
-                  <div className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
-                    {transfer.toZone}
+                  <div className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium flex items-center space-x-1">
+                    <MapPin className="h-3 w-3" />
+                    <span>{transfer.toZone}</span>
                   </div>
                 </div>
               </div>
 
               <div className="grid grid-cols-2 gap-4 text-sm">
                 <div>
-                  <span className="text-gray-600">Quantity to Transfer:</span>
+                  <span className="text-gray-600 flex items-center space-x-1">
+                    <Package className="h-3 w-3" />
+                    <span>Quantity to Transfer:</span>
+                  </span>
                   <div className="font-bold text-gray-900 text-lg">
                     {transfer.quantity.toLocaleString()} units
                   </div>
                 </div>
                 <div>
-                  <span className="text-gray-600">Estimated Savings:</span>
+                  <span className="text-gray-600 flex items-center space-x-1">
+                    <IndianRupee className="h-3 w-3" />
+                    <span>Estimated Savings:</span>
+                  </span>
                   <div className="font-bold text-green-600 text-lg">
                     {transfer.estimatedSavings}
                   </div>
@@ -163,11 +173,17 @@ const TransferRecommendations = () => {
         <div className="mt-6 p-4 bg-gradient-to-r from-blue-50 to-green-50 rounded-lg">
           <div className="flex items-center justify-between">
             <div>
-              <h4 className="font-semibold text-gray-900">Total Impact</h4>
+              <h4 className="font-semibold text-gray-900 flex items-center space-x-2">
+                <TrendingUp className="h-4 w-4 text-green-600" />
+                <span>Total Impact</span>
+              </h4>
               <p className="text-sm text-gray-600">All recommended transfers</p>
             </div>
             <div className="text-right">
-              <div className="text-2xl font-bold text-green-600">$37,750</div>
+              <div className="text-2xl font-bold text-green-600 flex items-center">
+                <IndianRupee className="h-5 w-5" />
+                <span>27,16,090</span>
+              </div>
               <div className="text-sm text-gray-600">Potential savings</div>
             </div>
           </div>

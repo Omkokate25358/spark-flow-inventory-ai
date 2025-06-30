@@ -4,7 +4,7 @@ import DemandForecastSection from '@/components/DemandForecastSection';
 import TransferRecommendations from '@/components/TransferRecommendations';
 import ExportSection from '@/components/ExportSection';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { TrendingUp, Package, ArrowRightLeft } from 'lucide-react';
+import { TrendingUp, Package, ArrowRightLeft, MapPin, Users, BarChart3 } from 'lucide-react';
 
 const Index = () => {
   return (
@@ -18,10 +18,14 @@ const Index = () => {
                 <Package className="h-8 w-8 text-white" />
               </div>
               <div>
-                <h1 className="text-3xl font-bold text-gray-900">
-                  AI Inventory Rebalancing Dashboard
+                <h1 className="text-3xl font-bold text-gray-900 flex items-center space-x-2">
+                  <span>AI Inventory Rebalancing Dashboard</span>
+                  <MapPin className="h-6 w-6 text-blue-600" />
                 </h1>
-                <p className="text-gray-600 mt-1">Walmart Sparkathon 2025</p>
+                <p className="text-gray-600 mt-1 flex items-center space-x-2">
+                  <BarChart3 className="h-4 w-4" />
+                  <span>Walmart Sparkathon 2025 - India Operations</span>
+                </p>
               </div>
             </div>
             <ExportSection />
@@ -34,45 +38,51 @@ const Index = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <Card className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-gray-600">
-                Total SKUs Analyzed
+              <CardTitle className="text-sm font-medium text-gray-600 flex items-center space-x-1">
+                <Package className="h-4 w-4" />
+                <span>Total SKUs Analyzed</span>
               </CardTitle>
-              <Package className="h-4 w-4 text-blue-600" />
+              <BarChart3 className="h-4 w-4 text-blue-600" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-gray-900">247</div>
-              <p className="text-xs text-green-600 mt-1">
-                +12% from last period
+              <p className="text-xs text-green-600 mt-1 flex items-center space-x-1">
+                <TrendingUp className="h-3 w-3" />
+                <span>+12% from last period</span>
               </p>
             </CardContent>
           </Card>
 
           <Card className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-gray-600">
-                Transfer Recommendations
+              <CardTitle className="text-sm font-medium text-gray-600 flex items-center space-x-1">
+                <ArrowRightLeft className="h-4 w-4" />
+                <span>Transfer Recommendations</span>
               </CardTitle>
-              <ArrowRightLeft className="h-4 w-4 text-green-600" />
+              <MapPin className="h-4 w-4 text-green-600" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-gray-900">18</div>
-              <p className="text-xs text-blue-600 mt-1">
-                Active recommendations
+              <p className="text-xs text-blue-600 mt-1 flex items-center space-x-1">
+                <Users className="h-3 w-3" />
+                <span>Active recommendations</span>
               </p>
             </CardContent>
           </Card>
 
           <Card className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-gray-600">
-                Forecast Accuracy
+              <CardTitle className="text-sm font-medium text-gray-600 flex items-center space-x-1">
+                <TrendingUp className="h-4 w-4" />
+                <span>Forecast Accuracy</span>
               </CardTitle>
-              <TrendingUp className="h-4 w-4 text-green-600" />
+              <BarChart3 className="h-4 w-4 text-green-600" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-gray-900">94.2%</div>
-              <p className="text-xs text-green-600 mt-1">
-                +2.1% improvement
+              <p className="text-xs text-green-600 mt-1 flex items-center space-x-1">
+                <TrendingUp className="h-3 w-3" />
+                <span>+2.1% improvement</span>
               </p>
             </CardContent>
           </Card>
